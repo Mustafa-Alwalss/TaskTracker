@@ -1,32 +1,47 @@
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.util.Scanner;
 
 public class Main {
-    static void main(String[] args) {
+   public static void main(String[] args) {
 
-        Path p = PathFinder.getTempPath();
-//
-//        System.out.println(p);
-//        System.out.println(p.getParent());
-//
-//        System.out.println(Files.exists(p));
-//        try {
-//            Files.createDirectories(p.getParent());
-//            System.out.println("folder create successfully! ");
-//            Files.writeString(p, "tsasdst \n lkdjasldkj");
-//            System.out.println("writing ");
-//            System.out.printf("the contnet is : %s" , Files.readString(p));
-//        } catch (Exception err) {
-//            System.out.println(err);
-//        }
-//
-        try {
-            Files.writeString(p, "Hello world!");
 
-        } catch (IOException e) {
-            System.out.println(e);
-        }
+        Scanner input = new Scanner(System.in);
+
+        do {
+            System.out.print
+                    (
+                            "HELLO TO TASK TRACKER!\n"          +
+                            "1) PRINT ALL TASKS.\n"             +
+                            "2) SELECT A TASK.\n"               +
+                            "3) ADD A TASK\n"                     +
+                            "e) EXIT.\n"                        +
+                            "CHOSE THE PROCESS: "
+                    );
+
+            String userChoose = input.next().toLowerCase();
+
+            if (userChoose.length() != 1) {
+                System.out.println("PLEASE ENTER ONE CHARACTER.");
+            } else {
+                switch (userChoose) {
+                    case "1":
+                        TasksHandler.tasksServices("ALL_TASKS");
+                        break;
+                    case "2":
+                        TasksHandler.tasksServices("SELECT_TASK");
+                        break;
+                    case "3":
+                        TasksHandler.tasksServices("ADD_TASK");
+                        break;
+                    case "e":
+                        System.exit(0);
+                    default:
+                        System.out.println("WRONG INPUT!");
+                }
+            }
+        } while (true);
 
     }
+
+
 }
+

@@ -45,17 +45,17 @@ public class PathFinder {
     }
 
     // THE PATH WHERE THE TEMPORARY JSON FILE WILL BE STORED
-    public static Path getTempPath() {
-        String tmpDir = System.getProperty("java.io.tmpdir");
-        return Paths.get(tmpDir, APP_NAME + ".tmp");
-    }
+//    public static Path getTempPath() {
+//        String tmpDir = System.getProperty("java.io.tmpdir");
+//        return Paths.get(tmpDir, APP_NAME + ".tmp");
+//    }
 
     //  PRINT THE RESULTS
     public static void printInfo() {
         OS os = detectOS();
         Path path = getPath();
-        Path tmpPath = getTempPath();
-        System.out.printf(" THE OS IS         : %s \n THE PATH IS       : %s \n THE TEMP PAHT IS  : %s", os, path ,tmpPath);
+//        Path tmpPath = getTempPath();
+        System.out.printf(" THE OS IS         : %s \n THE PATH IS       : %s \n THE TEMP PAHT IS  : %s", os, path );
 
     }
 }

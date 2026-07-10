@@ -3,22 +3,22 @@ import java.util.UUID;
 
 public class Task {
 
-    private enum TASK_STATUS {
+    protected enum TASK_STATUS {
         DONE , NOT_DONE , IN_PROGRESS
     }
 
-    private String      id;
-    private String      title;
-    private String      description;
-    private String      date;
-    private TASK_STATUS statu ;
+    private String      id          ;
+    private String      title       ;
+    private String      description ;
+    private String      date        ;
+    private TASK_STATUS statu       ;
 
     public Task(String title, String description) {
-        this.id             = UUID.randomUUID().toString().substring(0,7);
-        this.title          = title;
-        this.description    = description;
-        this.statu          = TASK_STATUS.NOT_DONE;
-        this.date           = LocalDate.now().toString();
+        this.id             = UUID.randomUUID().toString().substring(0,7)   ;
+        this.title          = title                                         ;
+        this.description    = description                                   ;
+        this.statu          = TASK_STATUS.NOT_DONE                          ;
+        this.date           = LocalDate.now().toString()                    ;
     }
 
 //    GETTERS
@@ -38,7 +38,7 @@ public class Task {
         return date;
     }
 
-    public TASK_STATUS getStatu() {
+    public TASK_STATUS getStatus() {
         return statu;
     }
 
@@ -51,11 +51,10 @@ public class Task {
         this.description = description;
     }
 
-    public void setStatu(TASK_STATUS statu){
+    public void setStatus(TASK_STATUS statu){
         this.statu = statu;
     }
 
-    //    OVERRIDE "toString"
     @Override
     public String toString() {
         return String.format("[%s] %s | %s | %s", id, title, description, statu);
